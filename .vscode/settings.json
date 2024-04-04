@@ -1,0 +1,7 @@
+{
+    "python.testing.pytestArgs": [
+        "keras_tuner_extensionpack"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true
+}

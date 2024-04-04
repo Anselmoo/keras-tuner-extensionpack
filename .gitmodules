@@ -1,0 +1,3 @@
+[submodule "vendor/keras-tuner"]
+	path = vendor/keras-tuner
+	url = https://github.com/keras-team/keras-tuner
