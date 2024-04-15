@@ -1,11 +1,11 @@
-"""Example of using Harmony Search algorithm with Keras Tuner ExtensionPack."""
+"""Example of using Tabu Search algorithm with Keras Tuner ExtensionPack."""
 
-from keras_tuner_extensionpack.benchmark.functions import shifted_ackley
-from keras_tuner_extensionpack.harmony_search import HarmonySearch
+from benchmark.functions import shifted_ackley
+from keras_tuner_extensionpack.tabu_search import TabuSearch
 import keras_tuner
 
 
-class MyTuner(HarmonySearch):
+class MyTuner(TabuSearch):
     def run_trial(self, trial, *args, **kwargs):
         # Get the hp from trial.
         hp = trial.hyperparameters
@@ -30,7 +30,7 @@ class MyTuner(HarmonySearch):
 tuner = MyTuner(
     # No hypermodel or objective specified.
     overwrite=True,
-    directory="harmony_search",
+    directory="tabu_search",
     project_name="tune_anything",
     trials_size=100,
     population_size=100,

@@ -1,11 +1,11 @@
-"""Example of using SinCosine algorithm with Keras Tuner ExtensionPack."""
+"""Example of using Differential Evolution algorithm with Keras Tuner ExtensionPack."""
 
-from keras_tuner_extensionpack.benchmark.functions import shifted_ackley
-from keras_tuner_extensionpack.sin_cosine_algorithm import SinCosineAlgorithm
+from benchmark.functions import shifted_ackley
+from keras_tuner_extensionpack.differential_evolution import DifferentialEvolution
 import keras_tuner
 
 
-class MyTuner(SinCosineAlgorithm):
+class MyTuner(DifferentialEvolution):
     def run_trial(self, trial, *args, **kwargs):
         # Get the hp from trial.
         hp = trial.hyperparameters
@@ -30,7 +30,7 @@ class MyTuner(SinCosineAlgorithm):
 tuner = MyTuner(
     # No hypermodel or objective specified.
     overwrite=True,
-    directory="sin_cosine",
+    directory="diff_evolution",
     project_name="tune_anything",
     trials_size=100,
     population_size=100,

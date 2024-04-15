@@ -1,11 +1,11 @@
-"""Example of using Differential Evolution algorithm with Keras Tuner ExtensionPack."""
+"""Example of using Harmony Search algorithm with Keras Tuner ExtensionPack."""
 
-from keras_tuner_extensionpack.benchmark.functions import shifted_ackley
-from keras_tuner_extensionpack.differential_evolution import DifferentialEvolution
+from benchmark.functions import shifted_ackley
+from keras_tuner_extensionpack.harmony_search import HarmonySearch
 import keras_tuner
 
 
-class MyTuner(DifferentialEvolution):
+class MyTuner(HarmonySearch):
     def run_trial(self, trial, *args, **kwargs):
         # Get the hp from trial.
         hp = trial.hyperparameters
@@ -30,7 +30,7 @@ class MyTuner(DifferentialEvolution):
 tuner = MyTuner(
     # No hypermodel or objective specified.
     overwrite=True,
-    directory="diff_evolution",
+    directory="harmony_search",
     project_name="tune_anything",
     trials_size=100,
     population_size=100,

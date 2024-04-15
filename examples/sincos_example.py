@@ -1,11 +1,11 @@
-"""Example of using Variable Depth Search algorithm with Keras Tuner ExtensionPack."""
+"""Example of using SinCosine algorithm with Keras Tuner ExtensionPack."""
 
-from keras_tuner_extensionpack.benchmark.functions import shifted_ackley
-from keras_tuner_extensionpack.variable_depth_search import VariableDepthSearch
+from benchmark.functions import shifted_ackley
+from keras_tuner_extensionpack.sin_cosine_algorithm import SinCosineAlgorithm
 import keras_tuner
 
 
-class MyTuner(VariableDepthSearch):
+class MyTuner(SinCosineAlgorithm):
     def run_trial(self, trial, *args, **kwargs):
         # Get the hp from trial.
         hp = trial.hyperparameters
@@ -30,7 +30,7 @@ class MyTuner(VariableDepthSearch):
 tuner = MyTuner(
     # No hypermodel or objective specified.
     overwrite=True,
-    directory="variable_depth_search",
+    directory="sin_cosine",
     project_name="tune_anything",
     trials_size=100,
     population_size=100,

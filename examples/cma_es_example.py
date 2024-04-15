@@ -1,11 +1,11 @@
-"""Example of using Tabu Search algorithm with Keras Tuner ExtensionPack."""
+"""Example of using CMA-ES algorithm with Keras Tuner ExtensionPack."""
 
-from keras_tuner_extensionpack.benchmark.functions import shifted_ackley
-from keras_tuner_extensionpack.tabu_search import TabuSearch
+from benchmark.functions import shifted_ackley
+from keras_tuner_extensionpack.cma_es_algorithm import CMAESAlgorithm
 import keras_tuner
 
 
-class MyTuner(TabuSearch):
+class MyTuner(CMAESAlgorithm):
     def run_trial(self, trial, *args, **kwargs):
         # Get the hp from trial.
         hp = trial.hyperparameters
@@ -30,10 +30,12 @@ class MyTuner(TabuSearch):
 tuner = MyTuner(
     # No hypermodel or objective specified.
     overwrite=True,
-    directory="tabu_search",
+    directory="cma_es",
     project_name="tune_anything",
     trials_size=100,
     population_size=100,
+    sigma_init=0.5,
+    epsilon=1e-8,
     objective=keras_tuner.Objective("roc", direction="min"),
 )
 
