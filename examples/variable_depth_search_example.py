@@ -1,11 +1,11 @@
-"""Example of using CMA-ES algorithm with Keras Tuner ExtensionPack."""
+"""Example of using Variable Depth Search algorithm with Keras Tuner ExtensionPack."""
 
-from keras_tuner_extensionpack.benchmark.functions import shifted_ackley
-from keras_tuner_extensionpack.cma_es_algorithm import CMAESAlgorithm
+from benchmark.functions import shifted_ackley
+from keras_tuner_extensionpack.variable_depth_search import VariableDepthSearch
 import keras_tuner
 
 
-class MyTuner(CMAESAlgorithm):
+class MyTuner(VariableDepthSearch):
     def run_trial(self, trial, *args, **kwargs):
         # Get the hp from trial.
         hp = trial.hyperparameters
@@ -30,12 +30,10 @@ class MyTuner(CMAESAlgorithm):
 tuner = MyTuner(
     # No hypermodel or objective specified.
     overwrite=True,
-    directory="cma_es",
+    directory="variable_depth_search",
     project_name="tune_anything",
     trials_size=100,
     population_size=100,
-    sigma_init=0.5,
-    epsilon=1e-8,
     objective=keras_tuner.Objective("roc", direction="min"),
 )
 

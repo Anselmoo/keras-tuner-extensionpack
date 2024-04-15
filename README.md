@@ -95,7 +95,11 @@ def rosenbrock(x: np.ndarray) -> float:
 
 ## Install
 
-Currently, only an installation from the repository is possible, `PyPi` is planned.
+```shell
+pip install keras-tuner-extensionpack
+```
+
+or:
 
 ```shell
 pip install git+https://github.com/Anselmoo/keras-tuner-extensionpack
