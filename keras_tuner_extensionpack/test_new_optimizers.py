@@ -1,4 +1,3 @@
-from calendar import c
 import keras_tuner
 import keras
 from keras_tuner.engine import hyperparameters as hp_module
@@ -11,7 +10,7 @@ from keras_tuner_extensionpack import harmony_search as hs_module
 from keras_tuner_extensionpack import simulated_annealing_search as sa_module
 from keras_tuner_extensionpack import differential_evolution as de_module
 from keras_tuner_extensionpack import cma_es_algorithm as cma_module
-from keras_tuner_extensionpack.benchmark.functions import shifted_ackley
+from benchmark.functions import shifted_ackley
 
 
 def build_model(hp):
