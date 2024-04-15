@@ -5,7 +5,30 @@ description = "An extension pack for keras-tuner for providing additional optimi
 license = "Apache License 2.0"
 authors = ["Anselm Hahn <Anselm.Hahn@gmail.com>"]
 readme = "README.md"
+maintainers = ["Anselm Hahn <Anselm.Hahn@gmail.com>"]
+repository = "https://github.com/Anselmoo/keras-tuner-extensionpack"
+keywords = ["keras-tuner", "optimizers", "keras", "tensorflow"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+packages = [
+    { include = "keras_tuner_extensionpack", from = "." },
+    { include = "examples", from = "." },
+    { include = "benchmark", from = "." },
 
+]
 
 [tool.poetry.dependencies]
 python = ">=3.8,<3.12"
