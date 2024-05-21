@@ -440,9 +440,9 @@ class SinCosineAlgorithmOracle(oracle_module.Oracle):
         self.population_size = state["population_size"]
         self.r1_cut = state["r1_cut"]
         self.r2_cut = state["r2_cut"]
-        self.amplitude = (state["amplitude"],)
-        self.damping_factor = (state["damping_factor"],)
-        self.shift_up = (state["shift_up"],)
+        self.amplitude = state["amplitude"]
+        self.damping_factor = state["damping_factor"]
+        self.shift_up = state["shift_up"]
         self.fitness = state["fitness"]
         self.best_fitness = state["best_fitness"]
         self.best_values = state["best_values"]
