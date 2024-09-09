@@ -209,11 +209,10 @@ class SimulatedAnnealingSearchOracle(oracle_module.Oracle):
         # Update the temperature
         if self.dynamic_cooling:
             self.temperature *= self.cooling_rate
-            print(">>>", self.temperature)
 
         # Reset the solution and temperature if the temperature is too low
         if self.temperature < self.stopping_temperature:
-            for i, hp in enumerate(self.hyperparameters.space):
+            for hp in self.hyperparameters.space:
                 hps.merge([hp])
                 if hps.is_active(hp) and not isinstance(hp, hp_module.Fixed):
                     new_value = np.random.default_rng(self.seed).uniform(0, 1)
